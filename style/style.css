@@ -10,7 +10,7 @@ body {
   text-align: center;
   width: 100%;
   display: flex;
-  padding: 140px 0px;
+  padding: 80px 0px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -35,6 +35,12 @@ header p {
   color: #8c8e8f;
 }
 
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .search-dev {
   border-radius: 32px;
   padding: 24px;
@@ -47,7 +53,7 @@ header p {
 
 .search-input {
   width: 100%;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: #cfd0d0;
   line-height: 30px;
@@ -91,7 +97,7 @@ header p {
   background: linear-gradient(180deg, #5285e2 0%, #325ab6 100%);
 }
 
-.result-container {
+.results-container {
   width: 100%;
 }
 
@@ -191,4 +197,71 @@ header p {
     #343739 49.69%,
     rgba(42, 45, 47, 0) 100%
   );
+}
+
+.error-state {
+  ont-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  color: #d42e41;
+}
+
+.progress2 {
+  padding: 3px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25),
+    0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar2 {
+  height: 9px;
+  border-radius: 15px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  transition: 0.4s linear;
+  transition-property: width, background-color;
+}
+
+.progress-moved .progress-bar2 {
+  width: 95%;
+  background-color: #256df4;
+  animation: progressAnimation 3s;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0%;
+    background-color: #256df4;
+  }
+  100% {
+    width: 95%;
+    background-color: #256df4;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .main-container {
+    width: 640px;
+  }
+
+  .search-container {
+    flex-direction: row;
+  }
+
+  .search-input {
+    font-size: 24px;
+  }
+
+  .search-btn {
+    width: auto;
+  }
+
+  .results-container {
+    width: 360px;
+  }
 }
