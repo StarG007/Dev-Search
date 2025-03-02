@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Dev finder</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <div class="heading">
+          <h1>Developer Finder</h1>
+          <p>we need dev name to get details</p>
+        </div>
+      </header>
+      <section class="search-dev">
+        <div class="search-container">
+          <input
+            class="search-input"
+            id="searchInput"
+            type="name"
+            placeholder="Enter Dev name here"
+          />
+          <br />
+          <button class="search-btn" onclick="searchDev()">Search</button>
+        </div>
+      </section>
+      <section
+        class="result-container"
+        id="resultContainer"
+        style="display: none"
+      >
+        <h4 class="resultlabel">Search result</h4>
+        <div class="results" id="results"></div>
+      </section>
+      <footer class="search-footer">
+        <div class="horDivider"></div>
+        <p>Project by - Tara Gamal</p>
+      </footer>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
