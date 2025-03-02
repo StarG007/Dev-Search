@@ -1,5 +1,9 @@
+var myVar;
+
 async function searchDev() {
   let query = document.getElementById("searchInput").value;
+  document.getElementById("progress").style.display = "block";
+
   if (!query) {
     alert("Opps! you forget to enter dev name");
     return;
@@ -12,6 +16,11 @@ async function searchDev() {
   let devDiv = document.getElementById("resultContainer");
   devDiv.style.display = "block";
 
+  myVar = setTimeout(showPage, 3000);
+  function showPage() {
+    document.getElementById("progress").style.display = "none";
+  }
+
   let resultDiv = document.getElementById("results");
   resultDiv.innerHTML = "";
 
@@ -21,7 +30,6 @@ async function searchDev() {
         `https://api.github.com/users/${devs.login}`
       );
       let userData = await userDetails.json();
-      console.log(userData);
 
       let userCard = document.createElement("div");
       userCard.classList.add("results-container");
@@ -30,7 +38,7 @@ async function searchDev() {
     <div class="username">
     <img
           class="userimg" src="${devs.avatar_url}" alt="user image" width="84" height="auto"/>
-    <h3>${devs.login}<h3>
+    <h3>${devs.login}</h3>
     </div>
     <div class="vertDivider"></div>
     <div class="devinfo">
@@ -42,6 +50,6 @@ async function searchDev() {
       resultDiv.appendChild(userCard);
     });
   } else {
-    resultDiv.innerHTML = "<p>No users found.</p>";
+    resultDiv.innerHTML = `<p class="error-state">Sorry! No devs with this name found. Please search different name.</p>`;
   }
 }
